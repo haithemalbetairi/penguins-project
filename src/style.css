@@ -1,0 +1,63 @@
+body {
+    margin: 0 auto;
+    background: rgb(16, 2, 109);
+    /* background: #07012F; */
+}
+
+main {
+    align-content: center
+}
+
+h1 {
+    font-family: 'Raleway Dots', cursive;
+    font-size: 3em;
+    color: #FFEEEE;
+}
+
+h2 {
+    font-family: 'Courgette', cursive;
+    margin: -15px 15px 0 15px;
+    font-size: 3em;
+    color: #FFEEEE;
+
+}
+
+p {
+    font-family: 'Raleway', cursive;
+    color: #FFEEEE;
+
+}
+
+button {
+    font-family: 'Raleway', cursive;
+    font-size:  1.5em;
+    background-color: gold
+}
+
+span {
+    font-family: 'Raleway', cursive;
+    margin: 10px;
+    color: #FFEEEE;
+
+}
+
+span:hover {
+    cursor: pointer
+}
+
+button {
+    margin: 10px;
+}
+
+.small {
+    margin: 10px; 
+}
+h2.small {
+    margin: -15px 15px;
+}
+
+.settings-icon {
+    height: 50px;
+    width: 50px;
+    position: 
+}
