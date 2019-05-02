@@ -13,11 +13,10 @@ $(document).ready(function () {
             success: function(response) {
                 // console.log('success in getting questions')
                 // console.log(response)
-                questions.push(response)
-                // questions is now an [[{} {} {}]] goal is to have it as [[{q1c1} {q2c1} {q3c1}
-                //                                                          {q1c2} {q2c2} {q3c2}
-                //                                                          {q1c3} {q2c3} {q3c3}]] etc..
-                renderGameBoard()
+                saveQuestions(response)
+                if(questions.length === 12) {
+                    renderGameBoard()
+                }
             },
             error: function (response) {
                 console.log('error from api')
@@ -26,20 +25,23 @@ $(document).ready(function () {
         })
     }
 
+    // save the questions in the global array for rendering with the buttons
+    function saveQuestions (data) {
+        // console.log('saving the question to the array')
+        data.results.forEach(function (question) {
+            questions.push(question)
+        })
+    }
+
     // 1) empty the main
     // 2) renderButtons
     function renderGameBoard() {
-        console.log('generating buttons')
-
-        if(questions.length = 4) {
-            // same category questions are all in the same array within the array
-            // the trio have same category
-            for(var i = 0; i < questions.length; i++) {
-                console.log(questions[i])
-                renderButtons(questions[i])
-            }
-        } else {
-            randomFetch();
+        // console.log('generating buttons')
+        // questions are saved in threes
+        // the trio have same category
+        for(var i = 0; i < questions.length - 4; i+=3) {
+            console.log(questions.slice(i, i+3))
+            renderButtons(questions.slice(i, i+3))
         }
     }
 
@@ -47,7 +49,7 @@ $(document).ready(function () {
     // create a housing div for category and buttons
     // render 4 buttons in it with according labels
     function renderButtons(questionsSegment) {
-        console.log('creating a button')
+        // console.log('creating a button')
         var i = 0
         var $buttonsDiv = $('<div>').appendTo('main')
         questionsSegment.forEach(function(question) {
